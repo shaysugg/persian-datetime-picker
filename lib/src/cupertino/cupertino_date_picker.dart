@@ -665,7 +665,7 @@ class _CupertinoTimerPickerState extends State<CupertinoTimerPicker> {
       selectedSecond = widget.initialTimerDuration.inSeconds % 60;
     }
 
-    PaintingBinding.instance.systemFonts.addListener(_handleSystemFontsChange);
+    PaintingBinding.instance?.systemFonts.addListener(_handleSystemFontsChange);
   }
 
   void _handleSystemFontsChange() {
@@ -678,7 +678,7 @@ class _CupertinoTimerPickerState extends State<CupertinoTimerPicker> {
 
   @override
   void dispose() {
-    PaintingBinding.instance.systemFonts
+    PaintingBinding.instance?.systemFonts
         .removeListener(_handleSystemFontsChange);
     super.dispose();
   }
@@ -1223,7 +1223,7 @@ class _CupertinoDatePickerDateTimeState
         initialItem: initialDateTime.minute ~/ widget.minuteInterval);
     dateController = FixedExtentScrollController(initialItem: 0);
 
-    PaintingBinding.instance.systemFonts.addListener(_handleSystemFontsChange);
+    PaintingBinding.instance?.systemFonts.addListener(_handleSystemFontsChange);
   }
 
   void _handleSystemFontsChange() {
@@ -1242,7 +1242,7 @@ class _CupertinoDatePickerDateTimeState
     minuteController!.dispose();
     meridiemController!.dispose();
 
-    PaintingBinding.instance.systemFonts
+    PaintingBinding.instance?.systemFonts
         .removeListener(_handleSystemFontsChange);
     super.dispose();
   }
@@ -1587,7 +1587,7 @@ class _CupertinoDatePickerDateTimeState
   }
 
   void _scrollToDate(Jalali newDate, Jalali fromDate) {
-    SchedulerBinding.instance.addPostFrameCallback((Duration timestamp) {
+    SchedulerBinding.instance?.addPostFrameCallback((Duration timestamp) {
       if (fromDate.year != newDate.year ||
           fromDate.month != newDate.month ||
           fromDate.day != newDate.day) {
@@ -1797,7 +1797,7 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
         FixedExtentScrollController(initialItem: selectedMonth! - 1);
     yearController = FixedExtentScrollController(initialItem: selectedYear!);
 
-    PaintingBinding.instance.systemFonts.addListener(_handleSystemFontsChange);
+    PaintingBinding.instance?.systemFonts.addListener(_handleSystemFontsChange);
   }
 
   void _handleSystemFontsChange() {
@@ -1813,7 +1813,7 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
     monthController!.dispose();
     yearController!.dispose();
 
-    PaintingBinding.instance.systemFonts
+    PaintingBinding.instance?.systemFonts
         .removeListener(_handleSystemFontsChange);
     super.dispose();
   }
@@ -2060,7 +2060,7 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
   }
 
   void _scrollToDate(Jalali newDate) {
-    SchedulerBinding.instance.addPostFrameCallback((Duration timestamp) {
+    SchedulerBinding.instance?.addPostFrameCallback((Duration timestamp) {
       if (selectedYear != newDate.year) {
         _animateColumnControllerToItem(yearController!, newDate.year);
       }
